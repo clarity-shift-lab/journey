@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>見方のくらべ帳｜Clarity Shift Lab</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Inter:wght@400;500;600&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#f3f2ee;--ink:#2b2b2b;--text:#4d4d4d;--mute:#8f8f8f;--line:#d8d5ce;--grid:#e2dfd8;--blue:#3f5a6b;--blue2:#6f8796;--pale:#dbe4ea;--pale2:#e9eff2;--gray:#bdbab3;
+ --jp:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN","Hiragino Sans",sans-serif;--en:"Inter","Helvetica Neue",Arial,sans-serif;--hand:"Caveat",cursive}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{font-family:var(--jp);color:var(--text);letter-spacing:.04em;background-color:var(--paper);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:22px 22px;-webkit-font-smoothing:antialiased}
+button,textarea{font:inherit;color:inherit}
+button{cursor:pointer;background:none;border:0}
+.kp{word-break:keep-all;overflow-wrap:anywhere}
+.wrap{max-width:480px;margin:0 auto;padding:0 20px 56px}
+.hide{display:none!important}
+
+/* 表紙 */
+.hero{text-align:center;padding:64px 0 10px}
+.hero .en{font-family:var(--hand);font-weight:600;font-size:22px;color:var(--blue2);line-height:1}
+.hero h1{font-size:28px;font-weight:500;color:var(--ink);letter-spacing:.16em;margin-top:8px}
+.badge{display:inline-block;margin-top:16px;font-size:12px;color:#fff;background:var(--blue);border-radius:999px;padding:4px 16px;letter-spacing:.14em}
+.intro{margin-top:30px;background:#fff;padding:28px 24px 30px;text-align:center}
+.intro p{font-size:14px;line-height:2;color:var(--ink)}
+.intro p+p{margin-top:14px}
+.intro .time{margin-top:18px;font-size:11.5px;color:var(--mute);letter-spacing:.14em}
+.pick{margin-top:22px;display:grid;gap:10px}
+.pick button{background:#fff;border:1px solid var(--line);padding:16px;font-size:14px;color:var(--ink);letter-spacing:.08em}
+
+/* 見出し */
+.q{margin-top:52px}
+.qh{text-align:center}
+.qh .n{font-family:var(--en);font-size:10.5px;font-weight:600;letter-spacing:.3em;color:var(--blue)}
+.qh .en{display:block;font-family:var(--hand);font-weight:600;font-size:19px;color:var(--blue2);line-height:1;margin-top:10px}
+.qh h2{font-size:19px;font-weight:500;color:var(--ink);letter-spacing:.14em;margin-top:6px}
+.qh p{margin-top:14px;font-size:13.5px;line-height:1.95;color:var(--text)}
+
+/* 自分軸の輪 */
+.wheelbox{margin-top:22px;background:#fff;padding:20px 10px 16px;text-align:center}
+.wheel{width:100%;max-width:330px;height:auto;display:block;margin:0 auto}
+.wheel .sg{transition:fill .35s}
+.wheel .s0{fill:#f6f5f2}.wheel .s1{fill:var(--blue)}.wheel .s2{fill:var(--gray)}
+.wheel .lb{font-family:var(--jp);font-size:12.5px;fill:var(--ink);letter-spacing:.04em}
+.wheel .c1{font-family:var(--jp);font-size:12px;fill:var(--mute);letter-spacing:.06em}
+.wheel .c2{font-family:var(--jp);font-weight:500;font-size:22px;fill:var(--ink)}
+.key{display:flex;justify-content:center;gap:18px;margin-top:8px;font-size:11.5px;color:var(--text)}
+.key i{display:inline-block;width:11px;height:11px;border-radius:50%;margin-right:6px;vertical-align:-1px}
+.key .k1{background:var(--blue)}.key .k2{background:var(--gray)}
+.areas{margin-top:14px;display:grid;gap:10px}
+.area{background:#fff;padding:16px 16px 16px}
+.area b{display:block;text-align:center;font-weight:500;font-size:15px;color:var(--ink);letter-spacing:.12em}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+.opt{border:1px solid var(--line);background:#fff;padding:11px 6px;font-size:12.5px;color:var(--text);letter-spacing:.04em;transition:background .25s,color .25s,border-color .25s}
+.opt.on{background:var(--ink);border-color:var(--ink);color:#fff}
+.two .opt.on.g{background:var(--gray);border-color:var(--gray);color:var(--ink)}
+
+/* 見方のクセ */
+.types{margin-top:22px;display:grid;gap:12px}
+.type{background:#fff;padding:22px 18px 20px;text-align:center}
+.type b{display:block;font-weight:500;font-size:16px;color:var(--ink);letter-spacing:.14em}
+.type small{display:block;margin-top:8px;font-size:11px;color:var(--mute);letter-spacing:.14em}
+.type .ex{margin-top:4px;font-size:13.5px;color:var(--text);line-height:1.8}
+.four{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:16px}
+
+/* 自由記述 */
+.fr{margin-top:22px;display:grid;gap:12px}
+.fr label{display:block;background:#fff;padding:20px 18px 18px;text-align:center}
+.fr label span{display:block;font-size:13px;color:var(--ink);letter-spacing:.1em}
+.fr textarea{display:block;width:100%;margin-top:12px;min-height:120px;border:1px solid var(--line);background:#fbfaf8;padding:12px 14px;font-size:15px;line-height:1.85;color:var(--ink);resize:vertical;text-align:left}
+.fr textarea:focus{outline:2px solid var(--pale);border-color:var(--blue2)}
+
+/* 送る */
+.send{margin-top:52px;background:var(--ink);color:#fff;padding:34px 22px 32px;text-align:center}
+.send .en{font-family:var(--hand);font-weight:600;font-size:20px;color:#9fb3c0;line-height:1}
+.send h2{font-size:17px;font-weight:500;letter-spacing:.14em;margin-top:6px}
+.send p{margin-top:14px;font-size:13px;line-height:1.95;color:#dbe4ea}
+.btn{display:block;width:100%;margin-top:20px;background:#fff;color:var(--ink);border-radius:999px;padding:14px;font-size:14.5px;letter-spacing:.1em}
+.btn.line{background:transparent;border:1px solid #9fb3c0;color:#fff;margin-top:10px}
+.err{margin-top:12px;font-size:12.5px;color:#f2c9b8;line-height:1.8;min-height:1em}
+.ok{margin-top:12px;font-size:12.5px;color:#cfe0ea;line-height:1.8}
+.save{margin-top:18px;font-size:11.5px;color:var(--mute);text-align:center;line-height:1.9}
+.ft{margin-top:40px;text-align:center;font-size:10.5px;color:var(--mute);letter-spacing:.1em;line-height:2}
+.ft i{font-family:var(--hand);font-style:normal;font-weight:600;font-size:14px;color:var(--blue2);margin:0 2px}
+.ft .brand{display:block;font-family:var(--en);font-size:9.5px;letter-spacing:.26em;text-transform:uppercase}
+</style>
+</head>
+<body>
+<div class="wrap">
+ <header class="hero">
+  <p class="en">Two Pages</p>
+  <h1>見方のくらべ帳</h1>
+  <span class="badge hide" id="badge"></span>
+ </header>
+
+ <section class="intro">
+  <div id="introTxt"></div>
+  <div class="pick hide" id="pick">
+   <button data-r="1">受講を始める前の方（最初の日）</button>
+   <button data-r="2">卒業の日を迎える方</button>
+  </div>
+  <p class="time">所要時間　5分ほど</p>
+ </section>
+
+ <div id="body" class="hide">
+ <section class="q">
+  <div class="qh"><span class="n">Q1</span><span class="en">Your compass</span><h2>自分軸の輪</h2>
+   <p class="kp">最近、次の8つの場面で何かを決めた時、&#8203;近いのはどちらですか。</p></div>
+  <div class="wheelbox"><svg class="wheel" id="wheel" viewBox="-200 -170 400 340" role="img" aria-label="8つの場面の答えを色で表した輪"></svg>
+   <div class="key"><span><i class="k1"></i>自分の気持ちで決めた</span><span><i class="k2"></i>周りの目で決めた</span></div></div>
+  <div class="areas" id="areas"></div>
+ </section>
+
+ <section class="q">
+  <div class="qh"><span class="n">Q2</span><span class="en">Your pattern</span><h2>見方のクセ</h2>
+   <p class="kp">ここ2週間で、&#8203;次のような考えが浮かんだのは、&#8203;どれくらいありましたか。</p></div>
+  <div class="types" id="types"></div>
+ </section>
+
+ <section class="q">
+  <div class="qh"><span class="n">Q3</span><span class="en">Your scene</span><h2>最近の場面</h2>
+   <p class="kp">最近いちばんモヤっとした場面を、&#8203;1つ思い浮かべてください。</p></div>
+  <div class="fr">
+   <label><span>どんな場面でしたか</span><textarea id="f1"></textarea></label>
+   <label><span>その時、どうしましたか</span><textarea id="f2"></textarea></label>
+  </div>
+ </section>
+
+ <section class="send">
+  <p class="en">Send</p>
+  <h2>答えを送る</h2>
+  <p class="kp">下のボタンで答えをコピーして、&#8203;公式LINEに貼り付けて送信してください。</p>
+  <button class="btn" id="copy">答えをコピーする</button>
+  <a class="btn line" id="lineBtn" href="https://line.me/R/ti/p/@585sfqhv" target="_blank" rel="noopener" style="text-decoration:none">公式LINEを開く</a>
+  <p class="err" id="err"></p>
+ </section>
+ <p class="save kp">お答えいただいた内容は、&#8203;このスマホの中だけに保存されます。</p>
+ </div>
+
+ <footer class="ft">特典<i>Two Pages</i>｜見方のくらべ帳<span class="brand">Clarity Shift Lab</span></footer>
+</div>
+
+<script>
+(function(){
+var $=function(s){return document.querySelector(s)},$$=function(s){return [].slice.call(document.querySelectorAll(s))};
+var AREAS=["仕事","職場の人","パートナー・家族","友達","お金の使い方","休みの日","体のこと","これからの選択"];
+var TYPES=[["先読み","「怒らせちゃったかも」"],["自分のせい","「私が悪かったのかな」"],["べき","「もっとちゃんと​するべきだった」"],["白か黒か","「もう全部ダメだ」"],["最悪シナリオ","「このままだと、​居づらくなるかも」"]];
+var FREQ=["ほぼ毎日","週に2〜3回","週に1回くらい","ほとんどなかった"];
+var ROUND={"1":{name:"最初の日",intro:["受講を始める前の、​今の見方を残しておくページです。​卒業の日にも同じことにお答えいただき、​2つを並べて1枚にまとめてお渡しします。","正解や良し悪しはありません。​最近のご自身を思い浮かべながら、​思ったままお答えください。"]},
+ "2":{name:"卒業の日",intro:["最初の日と同じことに、​もう一度お答えいただくページです。​お答えいただいた内容は、​最初の日と並べて1枚にまとめてお渡しします。","正解や良し悪しはありません。​最近のご自身を思い浮かべながら、​思ったままお答えください。"]}};
+var r=(new URLSearchParams(location.search)).get("r");
+var S={a:AREAS.map(function(){return 0}),t:TYPES.map(function(){return -1}),f1:"",f2:""};
+function key(){return "csl-kurabe-"+r}
+function load(){try{var o=JSON.parse(localStorage.getItem(key())||"null");if(o&&o.a)S=o}catch(e){}}
+function save(){try{localStorage.setItem(key(),JSON.stringify(S))}catch(e){}}
+function esc(t){return String(t).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+
+function start(){var R=ROUND[r];$("#badge").textContent=R.name;$("#badge").classList.remove("hide");$("#pick").classList.add("hide");
+ $("#introTxt").innerHTML=R.intro.map(function(t){return '<p class="kp">'+esc(t).replace(/​/g,"&#8203;")+'</p>'}).join("");
+ $("#body").classList.remove("hide");document.title="見方のくらべ帳（"+R.name+"）｜Clarity Shift Lab";load();build();paint()}
+if(ROUND[r])start();else{$("#introTxt").innerHTML='<p class="kp">お答えいただくのは、&#8203;どちらの時ですか。</p>';$("#pick").classList.remove("hide");
+ $$("#pick button").forEach(function(b){b.onclick=function(){r=b.getAttribute("data-r");history.replaceState(null,"","?r="+r);start();scrollTo(0,0)}})}
+
+/* 輪 */
+function pol(rr,a){return [Math.cos(a)*rr,Math.sin(a)*rr]}
+function wheel(){var Rr=118,r0=48,h="";
+ AREAS.forEach(function(n,k){var a0=-Math.PI/2+k*Math.PI/4+.014,a1=a0+Math.PI/4-.028,p1=pol(Rr,a0),p2=pol(Rr,a1),p3=pol(r0,a1),p4=pol(r0,a0);
+  h+='<path class="sg s'+S.a[k]+'" d="M'+p4+' L'+p1+' A'+Rr+' '+Rr+' 0 0 1 '+p2+' L'+p3+' A'+r0+' '+r0+' 0 0 0 '+p4+'Z" stroke="#d8d5ce" stroke-width="1"/>';
+  var am=(a0+a1)/2,lp=pol(Rr+16,am),c=Math.cos(am),anc=Math.abs(c)<.2?"middle":(c>0?"start":"end"),dy=Math.sin(am)>.5?12:(Math.sin(am)<-.5?-2:5);
+  var x=lp[0].toFixed(1),y=lp[1]+dy,pp=n.split('・');h+=pp.length>1?'<text class="lb" x="'+x+'" y="'+(y-7).toFixed(1)+'" text-anchor="'+anc+'">'+pp[0]+'・<tspan x="'+x+'" dy="15">'+pp[1]+'</tspan></text>':'<text class="lb" x="'+x+'" y="'+y.toFixed(1)+'" text-anchor="'+anc+'">'+n+'</text>'});
+ var done=S.a.filter(function(x){return x}).length,self=S.a.filter(function(x){return x===1}).length;
+ if(done===8)h+='<text class="c1" x="0" y="-6" text-anchor="middle">8つ中</text><text class="c2" x="0" y="20" text-anchor="middle">'+self+'つ</text>';
+ else h+='<text class="c1" x="0" y="-2" text-anchor="middle">あと</text><text class="c1" x="0" y="16" text-anchor="middle">'+(8-done)+'つ</text>';
+ $("#wheel").innerHTML=h}
+function build(){
+ $("#areas").innerHTML=AREAS.map(function(n,k){return '<div class="area"><b>'+n+'</b><div class="two"><button class="opt" data-k="'+k+'" data-v="1">自分の気持ちで決めた</button><button class="opt g" data-k="'+k+'" data-v="2">周りの目で決めた</button></div></div>'}).join("");
+ $$("#areas .opt").forEach(function(b){b.onclick=function(){var k=+b.dataset.k,v=+b.dataset.v;S.a[k]=S.a[k]===v?0:v;save();paint()}});
+ $("#types").innerHTML=TYPES.map(function(t,k){return '<div class="type"><b>'+t[0]+'</b><small>たとえば</small><p class="ex kp">'+esc(t[1]).replace(/​/g,"&#8203;")+'</p><div class="four">'+FREQ.map(function(f,i){return '<button class="opt" data-t="'+k+'" data-i="'+i+'">'+f+'</button>'}).join("")+'</div></div>'}).join("");
+ $$("#types .opt").forEach(function(b){b.onclick=function(){var k=+b.dataset.t,i=+b.dataset.i;S.t[k]=S.t[k]===i?-1:i;save();paint()}});
+ ["f1","f2"].forEach(function(id){var e=document.getElementById(id);e.value=S[id]||"";e.oninput=function(){S[id]=e.value;save();$("#err").textContent=""}})}
+function paint(){$$("#areas .opt").forEach(function(b){b.classList.toggle("on",S.a[+b.dataset.k]===+b.dataset.v)});
+ $$("#types .opt").forEach(function(b){b.classList.toggle("on",S.t[+b.dataset.t]===+b.dataset.i)});wheel();$("#err").textContent=""}
+
+/* 答えの文 */
+function today(){var d=new Date();return d.getFullYear()+"."+(d.getMonth()+1)+"."+d.getDate()}
+function text(){var self=S.a.filter(function(x){return x===1}).length,t="【見方のくらべ帳】"+ROUND[r].name+"（"+today()+"）\n\n■自分軸の輪：8つ中 "+self+"つ\n";
+ AREAS.forEach(function(n,k){t+=n+"："+(S.a[k]===1?"自分の気持ち":"周りの目")+"\n"});
+ t+="\n■見方のクセ（ここ2週間）\n";TYPES.forEach(function(x,k){t+=x[0]+"："+FREQ[S.t[k]]+"\n"});
+ t+="\n■最近いちばんモヤっとした場面\n"+S.f1.trim()+"\n\n■その時、どうしたか\n"+S.f2.trim()+"\n";return t}
+$("#copy").onclick=function(){var miss=[],a=S.a.filter(function(x){return !x}).length,tt=S.t.filter(function(x){return x<0}).length;
+ if(a)miss.push("自分軸の輪：あと"+a+"つ");if(tt)miss.push("見方のクセ：あと"+tt+"つ");if(!S.f1.trim()||!S.f2.trim())miss.push("最近の場面");
+ if(miss.length){$("#err").className="err";$("#err").textContent="まだお答えいただいていない質問があります（"+miss.join("／")+"）。";return}
+ var t=text();function done(){$("#err").className="ok";$("#err").textContent="コピーしました。公式LINEを開いて、トーク画面に貼り付けて送信してください。"}
+ try{navigator.clipboard.writeText(t).then(done,fb)}catch(e){fb()}
+ function fb(){var x=document.createElement("textarea");x.value=t;document.body.appendChild(x);x.select();try{document.execCommand("copy");done()}catch(e){}x.remove()}};
+window.__fill=function(o){S=o;save();build();paint()};window.__text=text;
+})();
+</script>
+</body>
+</html>
