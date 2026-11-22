@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>伝え方のレシピ本｜Clarity Shift Lab</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Inter:wght@400;500;600&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#f3f2ee;--ink:#2b2b2b;--text:#4d4d4d;--mute:#8f8f8f;--line:#d8d5ce;--grid:#e2dfd8;--blue:#3f5a6b;--blue2:#6f8796;--pale:#dbe4ea;--pale2:#e9eff2;
+ --jp:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN","Hiragino Sans",sans-serif;--en:"Inter","Helvetica Neue",Arial,sans-serif;--hand:"Caveat",cursive}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{font-family:var(--jp);color:var(--text);letter-spacing:.04em;background-color:var(--paper);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:22px 22px;-webkit-font-smoothing:antialiased}
+button{font:inherit;color:inherit;cursor:pointer;background:none;border:0}
+.kp{word-break:keep-all;overflow-wrap:anywhere}
+.wrap{max-width:560px;margin:0 auto;padding:0 20px 64px}
+.hide{display:none!important}
+
+.hero{text-align:center;padding:72px 0 8px}
+.hero .en{font-family:var(--hand);font-weight:600;font-size:24px;color:var(--blue2);line-height:1}
+.hero h1{font-size:28px;font-weight:500;color:var(--ink);letter-spacing:.16em;margin-top:10px}
+.hero .sub{margin-top:12px;font-size:12.5px;color:var(--mute);letter-spacing:.2em}
+.hero .for{margin-top:26px;font-size:15px;color:var(--ink);letter-spacing:.12em}
+.hero .for b{font-weight:500;border-bottom:1px solid var(--ink);padding:0 4px 2px;margin-right:2px}
+.lead{margin-top:34px;background:#fff;padding:30px 26px 32px;text-align:center}
+.lead p{font-size:14px;line-height:2.05;color:var(--ink)}
+.lead p+p{margin-top:14px}
+
+.sh{text-align:center;margin-top:56px}
+.sh .en{display:block;font-family:var(--hand);font-weight:600;font-size:19px;color:var(--blue2);line-height:1}
+.sh h2{font-size:18px;font-weight:500;color:var(--ink);letter-spacing:.16em;margin-top:6px}
+.sh p{margin-top:12px;font-size:13px;line-height:1.95;color:var(--text)}
+
+.three{margin-top:20px;display:grid;gap:10px}
+.three div{background:#fff;padding:18px 20px;display:grid;grid-template-columns:64px 1fr;align-items:center;gap:12px}
+.three b{font-weight:500;font-size:16px;color:var(--ink);letter-spacing:.14em;text-align:center;border-right:1px solid var(--line)}
+.three p{font-size:13px;line-height:1.85;color:var(--text);text-align:center}
+
+.how{margin-top:20px;background:#fff;padding:22px 20px 24px}
+.how .ln{display:grid;grid-template-columns:84px 1fr;gap:12px;align-items:center;padding:10px 0;border-top:1px dashed #e6e3dd}
+.how .ln:first-child{border-top:0;padding-top:0}
+.tag{display:inline-block;font-size:10.5px;letter-spacing:.06em;border-radius:999px;padding:3px 0;text-align:center;width:84px}
+.t1{background:var(--pale2);color:var(--blue)}
+.t2{background:var(--ink);color:#fff}
+.t3{background:var(--blue);color:#fff}
+.how p{font-size:12.5px;line-height:1.8;color:var(--text);text-align:center}
+.how .why{margin-top:14px;padding-top:14px;border-top:1px solid var(--line);font-size:12.5px;line-height:1.95;color:var(--ink);text-align:center}
+
+/* 目次と絞り込み */
+.nav{position:sticky;top:0;z-index:5;margin:48px -20px 0;padding:12px 20px;background:rgba(243,242,238,.94);backdrop-filter:blur(4px);border-bottom:1px solid var(--line)}
+.nav .ch{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.nav .ch a{display:block;text-align:center;text-decoration:none;font-size:13px;color:var(--ink);letter-spacing:.14em;padding:8px 0;border:1px solid var(--line);background:#fff}
+.nav .who{display:flex;justify-content:center;gap:6px;margin-top:8px}
+.nav .who button{font-size:11.5px;letter-spacing:.08em;padding:5px 14px;border-radius:999px;border:1px solid var(--line);background:#fff;color:var(--text)}
+.nav .who button.on{background:var(--ink);border-color:var(--ink);color:#fff}
+
+/* 章と文例 */
+.chap{padding-top:40px}
+.chap .head{text-align:center}
+.chap .head .no{font-family:var(--en);font-size:10.5px;font-weight:600;letter-spacing:.3em;color:var(--blue)}
+.chap .head .en{display:block;font-family:var(--hand);font-weight:600;font-size:20px;color:var(--blue2);line-height:1;margin-top:10px}
+.chap .head h2{font-size:22px;font-weight:500;color:var(--ink);letter-spacing:.2em;margin-top:6px}
+.chap .head p{margin-top:10px;font-size:12.5px;color:var(--text);line-height:1.9}
+.rc{margin-top:16px;background:#fff;padding:22px 20px 18px;break-inside:avoid;page-break-inside:avoid}
+.rc .top{display:flex;justify-content:center;align-items:center;gap:8px}
+.rc .who{font-size:10.5px;color:var(--blue);border:1px solid var(--blue2);border-radius:999px;padding:1px 10px;letter-spacing:.1em}
+.rc .num{font-family:var(--en);font-size:10px;color:var(--mute);letter-spacing:.14em}
+.rc h3{margin-top:10px;text-align:center;font-size:14.5px;font-weight:500;color:var(--ink);line-height:1.75;letter-spacing:.06em;text-wrap:balance}
+.rc ol{list-style:none;margin-top:16px;display:grid;gap:6px}
+.rc li{display:block;padding:12px 16px 13px;border-radius:4px;text-align:center}
+.rc li .tag{width:auto;padding:2px 12px}
+.rc li.l1{background:var(--pale2)}
+.rc li.l2{background:#f7f6f3}
+.rc li.l3{background:#eef2f5}
+.rc li p{margin-top:7px;font-size:13.5px;line-height:1.85;color:var(--ink);text-wrap:pretty}
+.rc .cp{display:block;margin:14px auto 0;font-size:11.5px;color:var(--ink);border:1px solid var(--line);border-radius:999px;padding:6px 18px;letter-spacing:.08em}
+.rc .cp.done{background:var(--ink);color:#fff;border-color:var(--ink)}
+
+.end{margin-top:56px;background:var(--ink);color:#fff;text-align:center;padding:34px 24px 36px}
+.end .en{font-family:var(--hand);font-weight:600;font-size:20px;color:#9fb3c0;line-height:1}
+.end p{margin-top:14px;font-size:13px;line-height:2.05;color:#e9eff2}
+.ft{margin-top:40px;text-align:center;font-size:10.5px;color:var(--mute);letter-spacing:.1em;line-height:2}
+.ft i{font-family:var(--hand);font-style:normal;font-weight:600;font-size:14px;color:var(--blue2);margin:0 2px}
+.ft .brand{display:block;font-family:var(--en);font-size:9.5px;letter-spacing:.26em;text-transform:uppercase}
+
+@media print{
+ @page{size:A4;margin:16mm 18mm}
+ body{background:#fff}
+ .nav,.rc .cp{display:none!important}
+ .wrap{max-width:150mm;margin:0 auto;padding:0}
+ .hero{padding-top:60mm}
+ .lead{margin-top:16mm;padding:12mm 10mm}
+ .p2{page-break-before:always;break-before:page;margin-top:10mm}
+ .how{page-break-inside:avoid}
+ .lead,.three div,.how,.rc{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+ .intro-end{page-break-after:always;break-after:page}
+ .chap{page-break-before:always;break-before:page;padding-top:0}
+ .rc{border:1px solid var(--line)}
+ .end{page-break-inside:avoid;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+ .rc li,.tag{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+ <header class="hero">
+  <p class="en">Recipe Book</p>
+  <h1>伝え方のレシピ本</h1>
+  <p class="sub">相談・報告・確認の言い方</p>
+  <p class="for hide" id="forNm"></p>
+ </header>
+
+ <section class="lead">
+  <p class="kp">言いづらいことがある時は、&#8203;言い方を考える前に、&#8203;それが「相談」なのか「報告」なのか&#8203;「確認」なのかが分かると、&#8203;ぐっと伝えやすくなります。</p>
+  <p class="kp">この本では、&#8203;職場・家族・友達との場面ごとに、&#8203;そのまま使える言い方をまとめました。&#8203;相手や場面に合わせて、&#8203;言葉を入れ替えてお使いください。</p>
+ </section>
+
+ <div class="sh p2"><span class="en">Three types</span><h2>3つの見分け方</h2></div>
+ <div class="three">
+  <div><b>相談</b><p class="kp">まだ決まってなくて、&#8203;相手と一緒に決めたいこと</p></div>
+  <div><b>報告</b><p class="kp">自分で決めて、&#8203;相手に知らせればいいこと</p></div>
+  <div><b>確認</b><p class="kp">もうお願いしていて、&#8203;返事や動きを待ってること</p></div>
+ </div>
+
+ <div class="sh"><span class="en">How to read</span><h2>レシピの読み方</h2></div>
+ <div class="how intro-end">
+  <div class="ln"><span class="tag t1">①安心の一言</span><p class="kp">先に、&#8203;相手が安心できる一言</p></div>
+  <div class="ln"><span class="tag t2">②伝えたいこと</span><p class="kp">起きてることや、&#8203;自分の状況</p></div>
+  <div class="ln"><span class="tag t3">③お願い</span><p class="kp">相手にしてほしいこと</p></div>
+  <p class="why kp">先に安心できる一言があると、&#8203;相手は「何を言われるんだろう」と&#8203;構えずに聞けます。&#8203;その分、&#8203;伝えたいこととお願いが、&#8203;まっすぐ届きやすくなります。</p>
+ </div>
+
+ <nav class="nav" aria-label="章と相手">
+  <div class="ch"><a href="#c1">相談</a><a href="#c2">報告</a><a href="#c3">確認</a></div>
+  <div class="who" id="who"><button data-w="" class="on">すべて</button><button data-w="職場">職場</button><button data-w="家族">家族</button><button data-w="友達">友達</button></div>
+ </nav>
+
+ <div id="book"></div>
+
+ <section class="end">
+  <p class="en">Your recipe</p>
+  <p class="kp">ここにある言い方は、&#8203;あくまで基本の形です。&#8203;何度か使ううちに、&#8203;自分の言いやすい言葉に&#8203;少しずつ変えていってください。</p>
+ </section>
+
+ <footer class="ft">特典<i>Recipe Book</i>｜伝え方のレシピ本<span class="brand">Clarity Shift Lab</span></footer>
+</div>
+
+<script>
+(function(){
+var CH=[
+ {id:"c1",no:"Chapter 01",en:"Consult",jp:"相談",d:"まだ決まってなくて、​相手と一緒に決めたい時",r:[
+  ["職場","仕事が重なって、締め切りに間に合いそうにない時（上司に）",["お手すきの際で構いませんので、","今週、企画書と月次の報告書の締め切りが重なっていて、両方を金曜までに仕上げるのは難しそうです。","どちらを先に進めるべきか、ご相談させていただいてもよろしいでしょうか？"]],
+  ["職場","同僚に頼まれた作業を、今日は引き受けられない時",["声をかけてくれてありがとう。","今日は夕方まで別の作業で手が埋まってて、","明日の午前なら手伝えるんだけど、それでも間に合いそう？"]],
+  ["家族","週末の予定を、パートナーと決めたい時",["出かけたい気持ちも分かってるんだけど、","今週は疲れがたまってて、土曜は家でゆっくりしたいなと思ってる。","日曜に出かけるのはどうかな？"]],
+  ["家族","帰省の日数を、家族と決めたい時",["帰るのは楽しみにしてるんだけど、","仕事の都合で、今年は2泊が限界そうで。","どの日に帰るか、一緒に決めてもいい？"]],
+  ["友達","旅行の予算を、友達と決めたい時",["どこに行っても楽しいと思うんだけど、","今月は少し出費が多くて、予算を抑えたくて。","宿は1泊1万円くらいの所で探してみてもいい？"]],
+  ["友達","誘ってもらった日の都合が合わない時",["誘ってくれてうれしい！","その日は先に予定が入ってて、行けなくて。","来週の土日なら空いてるんだけど、どうかな？"]]]},
+ {id:"c2",no:"Chapter 02",en:"Report",jp:"報告",d:"自分で決めて、​相手に知らせればいい時",r:[
+  ["職場","体調が悪くて、早めに帰る時（上司に）",["急ぎの作業は、お昼までに終わらせておきました。","体調がすぐれないため、本日は16時で失礼させていただきます。","何かあった場合は、明日の朝に対応させていただいてもよろしいでしょうか。"]],
+  ["職場","有給を取る日が決まった時（上司に）",["担当の作業は、前日までに終わらせておきます。","来週の金曜日、有給をいただきます。","当日に急ぎの件があれば、チャットに残しておいていただけたら助かります。"]],
+  ["家族","仕事で帰りが遅くなる時",["ご飯は先に食べててね。","今日は会議が長引きそうで、帰りは21時ごろになりそう。","帰る時にまた連絡するから、待たずに休んでてね。"]],
+  ["家族","休みの日に、一人の時間を取る時",["夕方には帰ってくるから、","日曜の午後は、一人でカフェに行ってくるね。","その間、何かあったらLINEしてね。"]],
+  ["友達","飲み会を途中で帰る時",["今日、誘ってもらえてよかった！","明日の朝が早いから、21時で先に帰るね。","次の集まりも、また声かけてほしい！"]],
+  ["友達","グループの集まりに、今回は参加しない時",["みんなに会いたい気持ちはあるんだけど、","今月は予定を詰めすぎないようにしてて、今回は見送るね。","写真、送ってもらえたらうれしい！"]]]},
+ {id:"c3",no:"Chapter 03",en:"Check",jp:"確認",d:"もうお願いしていて、​返事や動きを待ってる時",r:[
+  ["職場","上司に出した資料の返事を待ってる時",["お忙しいところ恐れ入ります。","月曜にお送りした企画書の件で、木曜の会議で使わせていただく予定のため、","水曜中に一度、目を通していただくことは可能でしょうか？"]],
+  ["職場","ほかの部署に頼んだ作業の進み具合を知りたい時",["急かすようで恐縮ですが、","先週お願いしたデータの件で、こちらの準備の都合もあり、","現在の進み具合を、分かる範囲で教えていただけますでしょうか？"]],
+  ["家族","頼んでた家のことが、まだ済んでない時",["最近忙しかったよね。","この前お願いした役所の書類、出す期限が金曜までで。","今週中に出せそうかな？難しそうなら、一緒に書こうか。"]],
+  ["家族","送ったLINEの返事が来てない時",["返事はゆっくりで大丈夫なんだけど、","昨日送った土曜の予定の件で、","夜にでも、行けそうかだけ教えてもらえる？"]],
+  ["友達","貸したものを返してほしい時",["急がなくて大丈夫なんだけど、","前に貸した本、来月また読み返したくて。","次に会う時、持ってきてもらえるとうれしい！"]],
+  ["友達","立て替えたお金のことを伝える時",["言いそびれてたんだけど、","この前のチケット代、1人3,000円だったよ。","都合のいい時でいいから、また送ってもらえると助かる！"]]]}
+];
+var LB=["①安心の一言","②伝えたいこと","③お願い"];
+var NM=((new URLSearchParams(location.search)).get("n")||"").trim().slice(0,20);
+if(NM){var fe=document.getElementById("forNm");fe.innerHTML="<b>"+String(NM).replace(/[&<>"]/g,"")+"</b>さんのレシピ本";fe.classList.remove("hide");document.title=NM+"さんの伝え方のレシピ本｜Clarity Shift Lab"}
+function esc(t){return String(t).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+function zw(t){return esc(t).replace(/(、|。|！|？)(?!$)/g,"$1&#8203;").replace(/​/g,"&#8203;")}
+var h="",n=0;
+CH.forEach(function(c){h+='<section class="chap" id="'+c.id+'"><div class="head"><span class="no">'+c.no+'</span><span class="en">'+c.en+'</span><h2>'+c.jp+'</h2><p class="kp">'+zw(c.d)+'</p></div>';
+ c.r.forEach(function(r){n++;h+='<article class="rc" data-w="'+r[0]+'"><div class="top"><span class="num">No.'+(n<10?"0":"")+n+'</span><span class="who">'+r[0]+'</span></div><h3 class="kp">'+zw(r[1])+'</h3><ol>'+r[2].map(function(l,i){return '<li class="l'+(i+1)+'"><span class="tag t'+(i+1)+'">'+LB[i]+'</span><p class="kp">'+zw(l)+'</p></li>'}).join("")+'</ol><button class="cp">この言い方をコピー</button></article>'});
+ h+='</section>'});
+document.getElementById("book").innerHTML=h;
+import("https://cdn.jsdelivr.net/npm/budoux@0.7.0/+esm").then(function(m){var P=m.loadDefaultJapaneseParser();[].forEach.call(document.querySelectorAll(".kp"),function(el){P.applyToElement(el)})}).catch(function(){});
+[].forEach.call(document.querySelectorAll(".rc"),function(a){var b=a.querySelector(".cp");b.onclick=function(){
+ var t=[].map.call(a.querySelectorAll("li p"),function(p){return p.textContent.replace(/​/g,"")}).reduce(function(s,l){return s+(s&&!/、$/.test(s)?"\n":"")+l},"");
+ function ok(){b.textContent="コピーしました";b.classList.add("done");setTimeout(function(){b.textContent="この言い方をコピー";b.classList.remove("done")},1600)}
+ try{navigator.clipboard.writeText(t).then(ok,fb)}catch(e){fb()}
+ function fb(){var x=document.createElement("textarea");x.value=t;document.body.appendChild(x);x.select();try{document.execCommand("copy");ok()}catch(e){}x.remove()}}});
+[].forEach.call(document.querySelectorAll("#who button"),function(b){b.onclick=function(){var w=b.dataset.w;
+ [].forEach.call(document.querySelectorAll("#who button"),function(x){x.classList.toggle("on",x===b)});
+ [].forEach.call(document.querySelectorAll(".rc"),function(a){a.classList.toggle("hide",!!w&&a.dataset.w!==w)})}});
+})();
+</script>
+</body>
+</html>
