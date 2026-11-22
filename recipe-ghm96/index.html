@@ -79,6 +79,9 @@ button{font:inherit;color:inherit;cursor:pointer;background:none;border:0}
 .rc li.l3{background:#eef2f5}
 .rc li p{margin-top:7px;font-size:13.5px;line-height:1.85;color:var(--ink);text-wrap:pretty}
 .rc .cp{display:block;margin:14px auto 0;font-size:11.5px;color:var(--ink);border:1px solid var(--line);border-radius:999px;padding:6px 18px;letter-spacing:.08em}
+.rc.my{border:1px solid var(--blue2)}
+.rc.my .num{font-family:var(--jp);font-size:10.5px;color:#fff;background:var(--blue);border-radius:999px;padding:1px 10px;letter-spacing:.1em}
+@media (max-width:340px){.rc li p{font-size:12.5px}.rc h3{font-size:14px}}
 .rc .cp.done{background:var(--ink);color:#fff;border-color:var(--ink)}
 
 .end{margin-top:56px;background:var(--ink);color:#fff;text-align:center;padding:34px 24px 36px}
@@ -102,6 +105,7 @@ button{font:inherit;color:inherit;cursor:pointer;background:none;border:0}
  .how{page-break-inside:avoid}
  .lead,.three div,.how,.rc{-webkit-print-color-adjust:exact;print-color-adjust:exact}
  .intro-end{page-break-after:always;break-after:page}
+ #mine{page-break-after:always;break-after:page}
  .chap{page-break-before:always;break-before:page;padding-top:0}
  .rc{border:1px solid var(--line)}
  .end{page-break-inside:avoid;-webkit-print-color-adjust:exact;print-color-adjust:exact}
@@ -117,6 +121,8 @@ button{font:inherit;color:inherit;cursor:pointer;background:none;border:0}
   <p class="sub">相談・報告・確認の言い方</p>
   <p class="for hide" id="forNm"></p>
  </header>
+
+ <div id="mine" class="hide"></div>
 
  <div class="sh why-h"><span class="en">Why this book</span><h2>このレシピ本をお渡しする理由</h2></div>
  <section class="lead bkwhy">
@@ -163,24 +169,42 @@ var CH=[
  {id:"c1",no:"Chapter 01",en:"Consult",jp:"相談",d:"まだ決まってなくて、​相手と一緒に決めたい時",r:[
   ["職場","仕事が重なって、締め切りに間に合いそうにない時（上司に）",["お手すきの際で構いませんので、","今週、企画書と月次の報告書の締め切りが重なっていて、両方を金曜までに仕上げるのは難しそうです。","どちらを先に進めるべきか、ご相談させていただいてもよろしいでしょうか？"]],
   ["職場","同僚に頼まれた作業を、今日は引き受けられない時",["声をかけてくれてありがとう。","今日は夕方まで別の作業で手が埋まってて、","明日の午前なら手伝えるんだけど、それでも間に合いそう？"]],
+  ["職場","打ち合わせの日程を、ほかの部署と決めたい時",["お忙しいところ恐れ入ります。","来週の打ち合わせは、火曜か木曜の午後でしたら、こちらで調整できます。","ご都合のよい日時を、いくつか教えていただけますでしょうか？"]],
+  ["職場","毎日の報告のやり方を変えたい時（上司に）",["いつも細かく見ていただいて、ありがとうございます。","毎日の報告を、夕方に1回まとめてお送りする形にすると、作業に集中しやすくなりそうです。","一度、その形で進めてみてもよろしいでしょうか？"]],
+  ["職場","仕事の分担を、同僚と決めたい時",["いつも手伝ってくれて、ありがとう。","今月は資料づくりが3件重なってて、全部を一人で進めるのは難しそうで。","どう分けるか、10分だけ一緒に考えてもらえる？"]],
   ["家族","週末の予定を、パートナーと決めたい時",["出かけたい気持ちも分かってるんだけど、","今週は疲れがたまってて、土曜は家でゆっくりしたいなと思ってる。","日曜に出かけるのはどうかな？"]],
   ["家族","帰省の日数を、家族と決めたい時",["帰るのは楽しみにしてるんだけど、","仕事の都合で、今年は2泊が限界そうで。","どの日に帰るか、一緒に決めてもいい？"]],
   ["友達","旅行の予算を、友達と決めたい時",["どこに行っても楽しいと思うんだけど、","今月は少し出費が多くて、予算を抑えたくて。","宿は1泊1万円くらいの所で探してみてもいい？"]],
-  ["友達","誘ってもらった日の都合が合わない時",["誘ってくれてうれしい！","その日は先に予定が入ってて、行けなくて。","来週の土日なら空いてるんだけど、どうかな？"]]]},
+  ["友達","誘ってもらった日の都合が合わない時",["誘ってくれてうれしい！","その日は先に予定が入ってて、行けなくて。","来週の土日なら空いてるんだけど、どうかな？"]],
+  ["友達","苦手な料理があって、お店選びを相談したい時",["どこに行っても楽しめそうなんだけど、","実は、辛いものがちょっと苦手で。","辛さを選べるお店にしてもらえたらうれしい！"]],
+  ["友達","会う時間を、短めにしたい時",["会えるの、すごく楽しみにしてる！","次の日が朝早いから、その日は夜まではいられなくて。","お昼から会うのはどうかな？"]],
+  ["友達","手伝いを頼まれたけど、半日しか行けない時",["頼ってくれてうれしい！","その日は午後から予定が入ってて、","午前中だけでもよければ手伝いに行けるんだけど、どうかな？"]]]},
  {id:"c2",no:"Chapter 02",en:"Report",jp:"報告",d:"自分で決めて、​相手に知らせればいい時",r:[
   ["職場","体調が悪くて、早めに帰る時（上司に）",["急ぎの作業は、お昼までに終わらせておきました。","体調がすぐれないため、本日は16時で失礼させていただきます。","何かあった場合は、明日の朝に対応させていただいてもよろしいでしょうか。"]],
   ["職場","有給を取る日が決まった時（上司に）",["担当の作業は、前日までに終わらせておきます。","来週の金曜日、有給をいただきます。","当日に急ぎの件があれば、チャットに残しておいていただけたら助かります。"]],
+  ["職場","打ち合わせに少し遅れる時",["資料は、先ほどメールでお送りしております。","電車が遅れておりまして、打ち合わせに10分ほど遅れて到着いたします。","先に始めていただいて構いませんので、よろしくお願いいたします。"]],
+  ["職場","会社の飲み会を、今回は欠席する時",["お声がけいただき、ありがとうございます。","その日は先約があるため、今回は欠席させていただきます。","また次の機会に、ぜひよろしくお願いいたします。"]],
+  ["職場","今日は定時で帰る時（同僚に）",["今日の分は、全部終わらせておいたよ。","今日は予定があるから、定時で上がるね。","急ぎのことがあれば、帰る前に声をかけてね。"]],
   ["家族","仕事で帰りが遅くなる時",["ご飯は先に食べててね。","今日は会議が長引きそうで、帰りは21時ごろになりそう。","帰る時にまた連絡するから、待たずに休んでてね。"]],
   ["家族","休みの日に、一人の時間を取る時",["夕方には帰ってくるから、","日曜の午後は、一人でカフェに行ってくるね。","その間、何かあったらLINEしてね。"]],
   ["友達","飲み会を途中で帰る時",["今日、誘ってもらえてよかった！","明日の朝が早いから、21時で先に帰るね。","次の集まりも、また声かけてほしい！"]],
-  ["友達","グループの集まりに、今回は参加しない時",["みんなに会いたい気持ちはあるんだけど、","今月は予定を詰めすぎないようにしてて、今回は見送るね。","写真、送ってもらえたらうれしい！"]]]},
+  ["友達","グループの集まりに、今回は参加しない時",["みんなに会いたい気持ちはあるんだけど、","今月は予定を詰めすぎないようにしてて、今回は見送るね。","写真、送ってもらえたらうれしい！"]],
+  ["友達","体調が悪くて、約束をキャンセルする時",["楽しみにしてたのに、本当にごめんね。","朝から熱っぽくて、今日は家で休むことにしたよ。","元気になったら、また誘わせてほしい！"]],
+  ["友達","しばらく、LINEの返事が遅くなる時",["いつもグループで話せるの、楽しいよ！","最近、仕事が立て込んでて、しばらくは返事が遅くなりそう。","落ち着いたら、またちゃんと返すね！"]],
+  ["友達","旅行の途中で、少しだけ別行動する時",["みんなとの旅行、すごく楽しんでる！","明日の午前中だけ、一人で美術館に行ってこようと思ってて。","お昼ごはんから合流するね！"]]]},
  {id:"c3",no:"Chapter 03",en:"Check",jp:"確認",d:"もうお願いしていて、​返事や動きを待ってる時",r:[
   ["職場","上司に出した資料の返事を待ってる時",["お忙しいところ恐れ入ります。","月曜にお送りした企画書の件で、木曜の会議で使わせていただく予定のため、","水曜中に一度、目を通していただくことは可能でしょうか？"]],
   ["職場","ほかの部署に頼んだ作業の進み具合を知りたい時",["急かすようで恐縮ですが、","先週お願いしたデータの件で、こちらの準備の都合もあり、","現在の進み具合を、分かる範囲で教えていただけますでしょうか？"]],
+  ["職場","取引先に送った見積もりの返事を待ってる時",["先日はありがとうございました。","10日にお送りしたお見積もりの件で、来月の予定を組む都合もございまして、","今週中に一度、ご検討の状況を伺えますでしょうか。"]],
+  ["職場","進め方が合ってるか、途中で見てほしい時（上司に）",["お預かりした資料は、7割ほど進んでおります。","表の数字は、先月の分と並べる形で作成しているのですが、","この進め方で合っているか、一度見ていただけますか？"]],
+  ["職場","同僚に頼んだ作業の締め切りが近い時",["忙しいところ、ごめんね。","この前お願いしたアンケートのまとめ、金曜の会議で使う予定で、","木曜のお昼までにもらえそうかな？"]],
   ["家族","頼んでた家のことが、まだ済んでない時",["最近忙しかったよね。","この前お願いした役所の書類、出す期限が金曜までで。","今週中に出せそうかな？難しそうなら、一緒に書こうか。"]],
   ["家族","送ったLINEの返事が来てない時",["返事はゆっくりで大丈夫なんだけど、","昨日送った土曜の予定の件で、","夜にでも、行けそうかだけ教えてもらえる？"]],
   ["友達","貸したものを返してほしい時",["急がなくて大丈夫なんだけど、","前に貸した本、来月また読み返したくて。","次に会う時、持ってきてもらえるとうれしい！"]],
-  ["友達","立て替えたお金のことを伝える時",["言いそびれてたんだけど、","この前のチケット代、1人3,000円だったよ。","都合のいい時でいいから、また送ってもらえると助かる！"]]]}
+  ["友達","立て替えたお金のことを伝える時",["言いそびれてたんだけど、","この前のチケット代、1人3,000円だったよ。","都合のいい時でいいから、また送ってもらえると助かる！"]],
+  ["友達","待ち合わせの時間と場所を確かめたい時",["明日、会えるの楽しみにしてる！","待ち合わせ、駅の東口に12時で合ってたよね？","もし変わってたら、教えてもらえるとうれしい！"]],
+  ["友達","集まりの出欠の返事を待ってる時",["みんなで会えるの、楽しみにしてる！","来月の集まり、お店の予約が15日までで、","行けそうかどうかだけ、それまでに教えてもらえると助かる！"]],
+  ["友達","頼んでたお店の予約が、まだ取れてなさそうな時",["いつも幹事を引き受けてくれて、ありがとう！","この前お願いしたお店の予約、まだだったら、","私の方から電話しておこうか？"]]]}
 ];
 var LB=["①安心の一言","②伝えたいこと","③お願い"];
 var NM=((new URLSearchParams(location.search)).get("n")||"").trim().slice(0,20);
@@ -192,6 +216,11 @@ CH.forEach(function(c){h+='<section class="chap" id="'+c.id+'"><div class="head"
  c.r.forEach(function(r){n++;h+='<article class="rc" data-w="'+r[0]+'"><div class="top"><span class="num">No.'+(n<10?"0":"")+n+'</span><span class="who">'+r[0]+'</span></div><h3 class="kp">'+zw(r[1])+'</h3><ol>'+r[2].map(function(l,i){return '<li class="l'+(i+1)+'"><span class="tag t'+(i+1)+'">'+LB[i]+'</span><p class="kp">'+zw(l)+'</p></li>'}).join("")+'</ol><button class="cp">この言い方をコピー</button></article>'});
  h+='</section>'});
 document.getElementById("book").innerHTML=h;
+var MY=[];try{var ps=(new URLSearchParams(location.search)).get("p");if(ps){var b64=ps.replace(/-/g,"+").replace(/_/g,"/");while(b64.length%4)b64+="=";MY=JSON.parse(decodeURIComponent(escape(atob(b64))));if(!Array.isArray(MY))MY=[]}}catch(e){MY=[]}
+MY=MY.filter(function(r){return r&&r[2]&&r[3]&&r[3].length===3}).slice(0,5);
+if(MY.length){var mh='<div class="sh"><span class="en">Only for you</span><h2>'+(NM?esc(NM)+"さんだけのレシピ":"あなただけのレシピ")+'</h2><p class="kz"><span class="c">セッションで一緒に作った、</span>&#8203;<span class="c">'+(NM?esc(NM)+"さん":"あなた")+'のための伝え方です。</span></p></div>';
+ MY.forEach(function(r,k){mh+='<article class="rc my"><div class="top"><span class="num">'+esc(r[0]||"")+'</span>'+(r[1]?'<span class="who">'+esc(r[1])+'</span>':'')+'</div><h3 class="kp">'+zw(r[2])+'</h3><ol>'+r[3].map(function(l,i){return '<li class="l'+(i+1)+'"><span class="tag t'+(i+1)+'">'+LB[i]+'</span><p class="kp">'+zw(l)+'</p></li>'}).join("")+'</ol><button class="cp">この言い方をコピー</button></article>'});
+ var me=document.getElementById("mine");me.innerHTML=mh;me.classList.remove("hide")}
 import("https://cdn.jsdelivr.net/npm/budoux@0.7.0/+esm").then(function(m){var P=m.loadDefaultJapaneseParser();[].forEach.call(document.querySelectorAll(".kp"),function(el){P.applyToElement(el)})}).catch(function(){});
 [].forEach.call(document.querySelectorAll(".rc"),function(a){var b=a.querySelector(".cp");b.onclick=function(){
  var t=[].map.call(a.querySelectorAll("li p"),function(p){return p.textContent.replace(/​/g,"")}).reduce(function(s,l){return s+(s&&!/、$/.test(s)?"\n":"")+l},"");
@@ -200,7 +229,7 @@ import("https://cdn.jsdelivr.net/npm/budoux@0.7.0/+esm").then(function(m){var P=
  function fb(){var x=document.createElement("textarea");x.value=t;document.body.appendChild(x);x.select();try{document.execCommand("copy");ok()}catch(e){}x.remove()}}});
 [].forEach.call(document.querySelectorAll("#who button"),function(b){b.onclick=function(){var w=b.dataset.w;
  [].forEach.call(document.querySelectorAll("#who button"),function(x){x.classList.toggle("on",x===b)});
- [].forEach.call(document.querySelectorAll(".rc"),function(a){a.classList.toggle("hide",!!w&&a.dataset.w!==w)})}});
+ [].forEach.call(document.querySelectorAll("#book .rc"),function(a){a.classList.toggle("hide",!!w&&a.dataset.w!==w)})}});
 })();
 </script>
 </body>
