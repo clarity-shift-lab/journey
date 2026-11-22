@@ -16,6 +16,8 @@ html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
 body{font-family:var(--jp);color:var(--text);letter-spacing:.04em;background-color:var(--paper);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:22px 22px;-webkit-font-smoothing:antialiased}
 button{font:inherit;color:inherit;cursor:pointer;background:none;border:0}
 .kp{word-break:keep-all;overflow-wrap:anywhere}
+.kz{word-break:keep-all;overflow-wrap:anywhere;line-break:strict}
+.kz .c{white-space:nowrap}
 .wrap{max-width:560px;margin:0 auto;padding:0 20px 64px}
 .hide{display:none!important}
 
@@ -25,7 +27,7 @@ button{font:inherit;color:inherit;cursor:pointer;background:none;border:0}
 .hero .sub{margin-top:12px;font-size:12.5px;color:var(--mute);letter-spacing:.2em}
 .hero .for{margin-top:26px;font-size:15px;color:var(--ink);letter-spacing:.12em}
 .hero .for b{font-weight:500;border-bottom:1px solid var(--ink);padding:0 4px 2px;margin-right:2px}
-.lead{margin-top:34px;background:#fff;padding:30px 26px 32px;text-align:center}
+.lead{margin-top:20px;background:#fff;padding:30px 26px 32px;text-align:center}
 .lead p{font-size:14px;line-height:2.05;color:var(--ink)}
 .lead p+p{margin-top:14px}
 
@@ -91,7 +93,10 @@ button{font:inherit;color:inherit;cursor:pointer;background:none;border:0}
  body{background:#fff}
  .nav,.rc .cp{display:none!important}
  .wrap{max-width:150mm;margin:0 auto;padding:0}
- .hero{padding-top:60mm}
+ .hero{padding-top:22mm}
+ .why-h{margin-top:12mm}
+ .lead.bkwhy{margin-top:6mm;padding:9mm 10mm}
+ .bkwhy p{font-size:13px;line-height:1.95}
  .lead{margin-top:16mm;padding:12mm 10mm}
  .p2{page-break-before:always;break-before:page;margin-top:10mm}
  .how{page-break-inside:avoid}
@@ -113,16 +118,20 @@ button{font:inherit;color:inherit;cursor:pointer;background:none;border:0}
   <p class="for hide" id="forNm"></p>
  </header>
 
- <section class="lead">
-  <p class="kp">言いづらいことがある時は、&#8203;言い方を考える前に、&#8203;それが「相談」なのか「報告」なのか&#8203;「確認」なのかが分かると、&#8203;ぐっと伝えやすくなります。</p>
-  <p class="kp">この本では、&#8203;職場・家族・友達との場面ごとに、&#8203;そのまま使える言い方をまとめました。&#8203;相手や場面に合わせて、&#8203;言葉を入れ替えてお使いください。</p>
+ <div class="sh why-h"><span class="en">Why this book</span><h2>このレシピ本をお渡しする理由</h2></div>
+ <section class="lead bkwhy">
+  <p class="kz"><span class="c">言いたいことを</span>&#8203;<span class="c">飲み込んでしまう方の多くは、</span>&#8203;<span class="c">言いたいことが</span>&#8203;<span class="c">ないわけではありません。</span>&#8203;<span class="c">「本当はこうしたい」という</span>&#8203;<span class="c">気持ちは、</span>&#8203;<span class="c">ちゃんと持ってる方が</span>&#8203;<span class="c">ほとんどです。</span></p>
+  <p class="kz"><span class="c">ただ、</span>&#8203;<span class="c">いざ伝えようとした時に</span>&#8203;<span class="c">言い方が出てこなくて、</span>&#8203;<span class="c">前から楽しみにしてた</span>&#8203;<span class="c">予定なのに</span>&#8203;<span class="c">「行ってもいいかな？」と</span>&#8203;<span class="c">相手に決めてもらう</span>&#8203;<span class="c">聞き方になったり、</span>&#8203;<span class="c">お願いしたことの</span>&#8203;<span class="c">返事が来なくても、</span>&#8203;<span class="c">もう一度言い出せないまま、</span>&#8203;<span class="c">時間が過ぎてしまったりします。</span></p>
+  <p class="kz"><span class="c">その場で一から</span>&#8203;<span class="c">言葉を探すと、</span>&#8203;<span class="c">どうしても焦ってしまって、</span>&#8203;<span class="c">つい相手に合わせた</span>&#8203;<span class="c">言い方を選んでしまうからです。</span></p>
+  <p class="kz"><span class="c">料理も、</span>&#8203;<span class="c">レシピがあれば</span>&#8203;<span class="c">毎回一から考えなくても</span>&#8203;<span class="c">作れます。</span>&#8203;<span class="c">伝え方も同じで、</span>&#8203;<span class="c">形が手元にあれば、</span>&#8203;<span class="c">あとは自分の状況に合わせて</span>&#8203;<span class="c">言葉を入れ替えるだけで、</span>&#8203;<span class="c">落ち着いて</span>&#8203;<span class="c">伝えられるようになります。</span></p>
+  <p class="kz"><span class="c">この本では、</span>&#8203;<span class="c">職場・家族・友達との</span>&#8203;<span class="c">場面ごとに、</span>&#8203;<span class="c">そのまま使える言い方を</span>&#8203;<span class="c">まとめました。</span>&#8203;<span class="c">セッションで見えてきた</span>&#8203;<span class="c">「本当はこうしたい」を</span>&#8203;<span class="c">伝える時に、</span>&#8203;<span class="c">ぜひ使ってみてください。</span></p>
  </section>
 
- <div class="sh p2"><span class="en">Three types</span><h2>3つの見分け方</h2></div>
+ <div class="sh p2"><span class="en">Three types</span><h2>3つの見分け方</h2><p class="kz"><span class="c">言いづらいことがある時は、</span>&#8203;<span class="c">言い方を考える前に、</span>&#8203;<span class="c">それが</span>&#8203;<span class="c">「相談」なのか</span>&#8203;<span class="c">「報告」なのか</span>&#8203;<span class="c">「確認」なのかが分かると、</span>&#8203;<span class="c">ぐっと伝えやすくなります。</span></p></div>
  <div class="three">
-  <div><b>相談</b><p class="kp">まだ決まってなくて、&#8203;相手と一緒に決めたいこと</p></div>
-  <div><b>報告</b><p class="kp">自分で決めて、&#8203;相手に知らせればいいこと</p></div>
-  <div><b>確認</b><p class="kp">もうお願いしていて、&#8203;返事や動きを待ってること</p></div>
+  <div><b>相談</b><p class="kz"><span class="c">まだ決まってなくて、</span><br><span class="c">相手と一緒に決めたいこと</span></p></div>
+  <div><b>報告</b><p class="kz"><span class="c">自分で決めて、</span><br><span class="c">相手に知らせればいいこと</span></p></div>
+  <div><b>確認</b><p class="kz"><span class="c">もうお願いしていて、</span><br><span class="c">返事や動きを待ってること</span></p></div>
  </div>
 
  <div class="sh"><span class="en">How to read</span><h2>レシピの読み方</h2></div>
